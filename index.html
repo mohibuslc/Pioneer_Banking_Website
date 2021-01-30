@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banking Website</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+</head>
+
+<body>
+    <div id="login-area">
+
+        <h1 class="text-center"> Welcome to
+            Pioneer Banking System. </h1>
+        <div class=" submit-area">
+            <h4>Login</h4>
+            <br>
+            <input type="text" class="form-control" placeholder="Enter Your Emil ID">
+            <br>
+            <input type="Password" class="form-control" name="" placeholder="Password">
+            <br>
+            <button id="login-btn" class="btn btn-success">Enter</button>
+
+
+        </div>
+    </div>
+       <div id = "Transaction-Area">
+           <div class="row">
+               <div class="col-md-4 ">
+                   <div class="deposit status">
+                    <h5>Deposit</h5>
+                    <h2>$00</h2>
+                </div>
+                   </div>
+               <div class="col-md-4 ">
+                   <div class=" withdraw status">
+                    <h5>withdraw</h5>
+                    <h2>$</h2>
+                   </div>
+               </div>
+               <div class="col-md-4 ">
+                   <div class="balance status">
+                    <h5>Balance</h5>
+                    <h2>1240</h2>
+                   </div>
+               </div>
+           </div>
+       </div>
+        </div>
+        <script>
+            const loginbtn = document.getElementById("login-btn");
+                 loginbtn.addEventListener("click", function () {
+
+                const loginArea = document.getElementById("login-area");
+                loginArea.style.display = "none";
+
+                const transactionArea = document.getElementById("Transaction-Area");
+                transactionArea.style.display = "block";
+
+            })
+
+
+
+
+
+
+        </script>
+</body>
+
+</html>
