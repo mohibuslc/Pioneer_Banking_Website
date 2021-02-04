@@ -38,13 +38,13 @@
             <div class="col-md-4 ">
                 <div class=" withdraw status">
                     <h5>withdraw</h5>
-                    <h2>$346</h2>
+                    <h2>00</h2>
                 </div>
             </div>
             <div class="col-md-4 ">
                 <div class="balance status">
                     <h5>Balance</h5>
-                    <h2>$ <span id="currentBalance">1200</span></h2>
+                    <h2><span id="currentBalance">0</span></h2>
                 </div>
             </div>
         </div>
@@ -62,9 +62,10 @@
             <div class="col-md-6">
                 <div class="submit-area">
                     <h4>Withdraw</h4>
-                    <input type="text" class="form-control" placeholder="Make withdraw Dollar amount">
+                    <input id="WithdrawAmount" type="text" class="form-control"
+                        placeholder="Make withdraw Dollar amount">
                     <br>
-                    <button id="addawithdraw" class="btn btn-success">Withdraw</button>
+                    <button id="Addwithdraw" class="btn btn-success">Withdraw</button>
                 </div>
             </div>
         </div>
@@ -93,28 +94,56 @@
             const depositAmount = document.getElementById("depositAmount").value;
             const depositNumber = parseFloat(depositAmount);
 
-
-            const currentDeposit = document.getElementById("currentDeposit").innerText;
-            const CurrentDepositNumber = parseFloat(currentDeposit);
-            const totalAmount = depositNumber + CurrentDepositNumber;
-
-            document.getElementById("currentDeposit").innerText = totalAmount;
-
-            const currentBalance = document.getElementById("currentBalance").innerText;
-            const currentBalanceNumber = parseFloat(currentBalance);
-            const totalBalance = depositNumber + currentBalanceNumber;
-            document.getElementById("currentBalance").innerText = totalBalance;
+            // just only do write two line this two line and just need write 5 line Below 
 
 
 
 
-            document.getElementById("depositAmount").value = "";
+            updateSpanText("currentDeposit", depositNumber);
+
+            updateSpanText("currentBalance", depositNumber); // This  one Are part of TotalBalnce 
+
+
+            // this two line Above link of Bellow function section : 
+
+
+            document.getElementById("depositAmount",).value = "";
+
+
+           
 
 
         })
+        // remamber Similar code some time make Error So we can Declare inside the function : 
+        function updateSpanText(id, depositNumber) {
+
+            const currentBalance = document.getElementById(id).innerText;
+            const currentBalanceNumber = parseFloat(currentBalance);
+            const totalBalance = depositNumber + currentBalanceNumber;
+            document.getElementById(id).innerText = totalBalance;
+
+        }
+         // withdraw click event Listener : 
+
+         const withdrawBtn = document.getElementById("Addwithdraw");
+         withdrawBtn.addEventListener("click", function(){
+             const withdrawNumber = getInputNumber("WithdrawAmount");
+                console.log(withdrawNumber);
 
 
+            // const WithdrawAmount = document.getElementById("WithdrawAmount");
+            // const withdrawNumber =parseFloat(WithdrawAmount);
 
+             //console.log(withdrawNumber);
+
+         })
+
+         function getInputNumber(id){
+            const WithdrawAmount = document.getElementById(id).value;
+            const withdrawNumber = parseFloat(WithdrawAmount);
+            return withdrawNumber;
+
+         }
     </script>
 </body>
 
