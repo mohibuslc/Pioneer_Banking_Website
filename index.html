@@ -38,7 +38,7 @@
             <div class="col-md-4 ">
                 <div class=" withdraw status">
                     <h5>withdraw</h5>
-                    <h2>$<span id ="currentwithdraw">00</span></h2>
+                    <h2>$<span id="currentwithdraw">00</span></h2>
                 </div>
             </div>
             <div class="col-md-4 ">
@@ -84,6 +84,7 @@
             transactionArea.style.display = "block";
 
 
+
         })
 
         // Amount Input in Deposit Section and + this Amount ADD with Balance 
@@ -93,24 +94,30 @@
 
             const depositAmount = document.getElementById("depositAmount").value;
             const depositNumber = parseFloat(depositAmount);
+            
 
-            // just only do write two line this two line and just need write 5 line Below 
+            // Bellow the code working if anyone want to do deposit Negative amount then show massage and not going deposit negative Amount : 
+            
+            if (depositNumber < 0) {
+
+                alert("This Number Can't Be Deposit");
+
+            }
+            else {
+
+                updateSpanText("currentDeposit", depositNumber);
+
+                updateSpanText("currentBalance", depositNumber);
+                document.getElementById("depositAmount",).value = "";
+            }
+
+          
+
+
+            
 
 
 
-
-            updateSpanText("currentDeposit", depositNumber);
-
-            updateSpanText("currentBalance", depositNumber); // This  one Are part of TotalBalnce 
-
-
-            // this two line Above link of Bellow function section : 
-
-
-            document.getElementById("depositAmount",).value = "";
-
-
-           
 
 
         })
@@ -123,31 +130,31 @@
             document.getElementById(id).innerText = totalBalance;
 
         }
-         // withdraw click event Listener : 
+        // withdraw click event Listener : 
 
-         const withdrawBtn = document.getElementById("Addwithdraw");
-         withdrawBtn.addEventListener("click", function(){
-             const withdrawNumber = getInputNumber("WithdrawAmount");
-                console.log(withdrawNumber);
+        const withdrawBtn = document.getElementById("Addwithdraw");
+        withdrawBtn.addEventListener("click", function () {
+            const withdrawNumber = getInputNumber("WithdrawAmount");
+            console.log(withdrawNumber);
 
 
             // const WithdrawAmount = document.getElementById("WithdrawAmount");
             // const withdrawNumber =parseFloat(WithdrawAmount);
 
-             //console.log(withdrawNumber);
+            //console.log(withdrawNumber);
 
-             updateSpanText("currentwithdraw", withdrawNumber);
-             updateSpanText("currentBalance", -1 * withdrawNumber);
-             document.getElementById("withdrawNumber").value =""
+            updateSpanText("currentwithdraw", withdrawNumber);
+            updateSpanText("currentBalance", -1 * withdrawNumber);
+            document.getElementById("withdrawNumber").value = ""
 
-         })
+        })
 
-         function getInputNumber(id){
+        function getInputNumber(id) {
             const WithdrawAmount = document.getElementById(id).value;
             const withdrawNumber = parseFloat(WithdrawAmount);
             return withdrawNumber;
 
-         }
+        }
     </script>
 </body>
 
